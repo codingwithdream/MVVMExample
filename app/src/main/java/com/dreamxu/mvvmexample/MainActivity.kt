@@ -1,6 +1,5 @@
 package com.dreamxu.mvvmexample
 
-import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -15,6 +14,7 @@ import com.dreamxu.mvvmexample.viewmodels.PlaceListViewModel
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity() {
+    
     private val TAG = "MainActivity"
 
     private lateinit var mNicePlacesRecyclerView: RecyclerView
@@ -44,7 +44,8 @@ class MainActivity : AppCompatActivity() {
         })
 
         mFab.setOnClickListener {
-            mNicePlacesViewModel.addPlace(NicePlace("", "China Shanghai"))
+            mNicePlacesViewModel.addPlace(NicePlace("https://i.imgur.com/ZcLLrkY.jpg",
+                "Washington"))
         }
 
         initRecycleView()
