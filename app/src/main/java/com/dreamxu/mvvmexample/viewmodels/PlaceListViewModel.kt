@@ -9,12 +9,8 @@ import com.dreamxu.mvvmexample.models.NicePlace
 import com.dreamxu.mvvmexample.repositories.NicePlaceRepository
 
 class PlaceListViewModel: ViewModel() {
-    private lateinit var mNicePlaces: MutableLiveData<List<NicePlace>>
+    private var mNicePlaces: MutableLiveData<List<NicePlace>> = NicePlaceRepository.getNicePlaces()
     private var mIsUpdating: MutableLiveData<Boolean> = MutableLiveData()
-
-    init {
-        mNicePlaces = NicePlaceRepository.getNicePlaces()
-    }
 
     fun addPlace(mNicePlace: NicePlace) {
         mIsUpdating.value = true

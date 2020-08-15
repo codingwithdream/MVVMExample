@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.dreamxu.mvvmexample.R
 import com.dreamxu.mvvmexample.models.NicePlace
@@ -23,11 +24,15 @@ class PlaceListAdapter(private val nicePlaceList: List<NicePlace>, private val c
         // Set the name of NicePlace
         holder.mTitle.text = nicePlaceList[position].placeName
 
-        // Set the image
+        // Set the CircleImage
+        var strategy = DiskCacheStrategy.NONE
+        val imageUrl = nicePlaceList[position].imageUrl
+        if (imageUrl.startsWith("http://") || imageUrl.startsWith("https://")) {
+            strategy = DiskCacheStrategy.RESOURCE
+        }
         val defaultOptions = RequestOptions().error(R.drawable.ic_launcher_background)
-        Glide.with(context).setDefaultRequestOptions(defaultOptions)
-            .load(nicePlaceList[position].imageUrl)
-            .into((holder).mImage)
+            .dontAnimate().diskCacheStrategy(strategy)
+        Glide.with(context).load(imageUrl).apply(defaultOptions).into(holder.mImage)
     }
 
     override fun getItemCount(): Int {

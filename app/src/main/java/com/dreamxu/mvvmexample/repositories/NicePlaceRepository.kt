@@ -1,6 +1,5 @@
 package com.dreamxu.mvvmexample.repositories
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.dreamxu.mvvmexample.models.NicePlace
 
@@ -18,7 +17,7 @@ object NicePlaceRepository {
     private fun setNicePlaces() {
         dataSet.add(
             NicePlace(
-                "https://c1.staticflickr.com/5/4636/25316407448_de5fbf183d_o.jpg", "Havasu Falls"
+                "https://i.redd.it/tpsnoz5bzo501.jpg", "Havasu Falls"
             )
         )
         dataSet.add(
@@ -48,7 +47,7 @@ object NicePlaceRepository {
         )
         dataSet.add(
             NicePlace(
-                "https://c1.staticflickr.com/5/4636/25316407448_de5fbf183d_o.jpg", "Frozen Lake"
+                "https://i.redd.it/tpsnoz5bzo501.jpg", "Frozen Lake"
             )
         )
         dataSet.add(
